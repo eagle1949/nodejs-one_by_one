@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <style>
+         .page__ft.j_bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .page__ft {
+            padding-top: 40px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body ontouchstart>
+	<div class="page input js_show">
+    <form method="post" action="/addMessage">
+        <div class="page__bd">
+            <div class="weui-cells__title">新增信息</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <textarea class="weui-textarea" placeholder="请输入文本" rows="3" name="message"></textarea>
+                        <div class="weui-textarea-counter"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page__bd page__bd_spacing">
+            <button class="weui-btn weui-btn_primary">提交</button>
+        </div>
+    </form>
+    
+</div>
+
+<div class="page__ft j_bottom">
+        <div class="page__ft"><script language="javascript" type="text/javascript" src="//js.users.51.la/19322470.js"></script>
+    <noscript>< a href=" " target="_blank">< img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19322470.asp" style="border:none" /></ a></noscript></div>
+</div>
+</body>
+</html>

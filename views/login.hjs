@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <style>
+        .important-tips{
+            text-align: center;
+            width: 100%;
+            height: 20px;
+            display: block;
+            color: green;
+        }
+        .errorMsg{
+            color: #e66767;
+            text-align: center;
+        }
+        .page__ft.j_bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .page__ft {
+            padding-top: 40px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body ontouchstart>
+    <div style="width: 155px;margin: 0 auto;"><img src="/images/onelogo.png" alt="" /></div>
+    
+    <div class="weui-cells__title errorMsg">{{message}}</div>
+    <form action="/login" method="post">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
+                <div class="weui-cell__bd weui-cell_primary"><input type="text" class="weui-input" placeholder="用户名" name="account"/></div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+                <div class="weui-cell__bd weui-cell_primary"><input type="password" class="weui-input" placeholder="不少于6位" name="password"/></div>
+            </div>
+        </div>
+        <div class="weui-cells__tips"></div>
+        <div class="weui-btn-area">
+            <button class="weui-btn weui-btn_primary">登录</button>
+        </div>
+    </form>
+    <a href="./signup" class="important-tips">没账户，去注册</a>
+
+    <div class="page__ft j_bottom">
+            <div class="page__ft"><script language="javascript" type="text/javascript" src="//js.users.51.la/19322470.js"></script>
+        <noscript>< a href=" " target="_blank">< img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19322470.asp" style="border:none" /></ a></noscript></div>
+    </div>
+</body>
+</html>

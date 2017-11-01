@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/weui.css"/>
+     <style>
+         .page__ft.j_bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .page__ft {
+            padding-top: 40px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+    <script src="/js/zepto.js"></script>
+    <script>
+        $(function(){
+            $('.deleteBtn').click(function(){
+                $('#iosDialog1').show();
+                var mid = $(this).attr('mid');
+                $('#confirmBtn').click(function(){
+                    $(this).attr('href','/deleteMessage/'+mid);
+                })
+            })
+            $('#cancelBtn').click(function(){
+                $('#iosDialog1').hide();
+            })
+        })
+    </script>
+</head>
+<body ontouchstart>
+     <div class="js_dialog" id="iosDialog1" style="display:none">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">提示</strong></div>
+            <div class="weui-dialog__bd">确定删除吗？</div>
+            <div class="weui-dialog__ft">
+                <a id="cancelBtn" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+                <a id="confirmBtn" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <a href="/addMessage" class="weui-btn weui-btn_default">新建通知</a>
+    <!-- <a href="./logout" class=>退出</a> -->
+    <div class="weui-cells__title">通知列表</div>
+        {{#users}}
+            <div class="weui-cells">
+                <a href="/detail/{{mid}}">
+                    <div class="weui-cell">
+                      <p class="weui-media-box__desc">{{message}}</p>
+                    </div>
+                </a>
+                <div class="button-sp-area">
+                    <a href="/detail/{{mid}}" class="weui-btn weui-btn_mini weui-btn_default">详情</a>
+                    <a href="/editMessage/{{mid}}" class="weui-btn weui-btn_mini weui-btn_primary">编辑</a>
+                    <!-- <a href="/deleteMessage/{{mid}}" class="weui-btn weui-btn_mini weui-btn_warn">删除</a> -->
+                    <a mid="{{mid}}" class="weui-btn weui-btn_mini weui-btn_warn deleteBtn">删除</a>
+                </div>
+            </div>
+        {{/users}}
+
+        <div class="page__ft j_bottom">
+        <div class="page__ft"><script language="javascript" type="text/javascript" src="//js.users.51.la/19322470.js"></script>
+    <noscript>< a href=" " target="_blank">< img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19322470.asp" style="border:none" /></ a></noscript></div>
+</div>
+</body>
+</html>

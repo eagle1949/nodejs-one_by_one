@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>{{message}} 发起人:{{name}}</title>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <style>
+        .page__ft.j_bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        .page__ft {
+            padding-bottom: 0px;
+            text-align: center;
+        }
+
+        #topRegion .weui-flex__item1 {
+            padding-left: 15px;
+            width: 28%;
+        }
+         #topRegion .weui-flex__item2 {
+            width: 28%;
+        }
+         #topRegion .weui-flex__item3 {
+            width: 44%;
+        }
+         #studentList .weui-flex__item1 {
+            padding-left: 18px;
+            width: 28%;
+        }
+         #studentList .weui-flex__item2{
+            width: 28%;
+        }
+         #studentList .weui-flex__item3 {
+            width: 44%;
+        }
+    </style>
+    <script src="/js/zepto.js"></script>
+    <script>
+        $(function(){
+            //拉取数据
+            function fetchData(){
+                $.ajax({
+                    url : '/response/' + {{mid}},
+                    success(data){
+                        $('#number').text(data.length);
+                        var responseData = data.responseData;
+                        var selectNum = [];
+                        $('#studentList').html('');
+                        $('.selectnum').remove();
+                        //列表
+                        for(var i=0; i < responseData.length; i++){
+                            $('#studentList').append('<div class="weui-flex"><div class="weui-flex__item1"><div class="placeholder">'+responseData[i].num+'</div></div><div class="weui-flex__item2"><div class="placeholder">'+responseData[i].name+'</div></div><div class="weui-flex__item3"><div class="placeholder">'+responseData[i].time+'</div></div></div>');
+                            //获取已经提交的学号
+                            selectNum.push(responseData[i].num);
+                        }
+                        //渲染没有报名的学号
+                        
+                        for(var j=1; j <= 70; j++){
+                            if($.inArray(j, selectNum) == -1){
+                               $('#num').append('<option class="selectnum" value="'+j+'">'+j+'</option>');
+                            }
+                        }
+                    },
+                    error(data){
+                        console.log(data);
+                    }
+                })
+            }
+
+            function successMessage(data){
+                var $toast = $('#successToast');
+                $('#successContent').text(data);
+                if ($toast.css('display') != 'none') return;
+
+                $toast.show(100);
+                setTimeout(function () {
+                    $toast.hide(100);
+                }, 1000);
+            }
+            function errorMessage(data){
+                $('#errorContent').text(data);
+                if ($('#errorToast').css('display') != 'none') return;
+
+                $('#errorToast').show(100);
+                setTimeout(function () {
+                    $('#errorToast').hide(50);
+                }, 1000);
+            }
+            
+
+
+            //获取数据
+            fetchData();
+
+            $('#submitBtn').click(function(){
+                var num = $('#num').val();
+                var name = $('#name').val();
+                if(num == ''){errorMessage('请选择学号');return;}
+                if(name == ''){errorMessage('请输入姓名');return;}
+                $.ajax({
+                    url : '/addResponse',
+                    type : 'POST',
+                    data : {
+                        num : num,
+                        name : name,
+                        mid : {{mid}}
+                    },
+                    success(data){
+                        $('#name').val('');
+                        successMessage('接龙成功');
+                        fetchData();
+                    },
+                    error(data){
+
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body ontouchstart>
+    <a href="/addMessage" class="weui-btn weui-btn_default">返回首页</a>
+    <div id="successToast" style="display:none">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast" style="top: 50%;">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content" id="successContent"></p>
+        </div>
+    </div>
+    <div id="errorToast" style="display:none">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast" style="top: 50%; min-height: auto;">
+            <p class="weui-toast__content" id="errorContent"></p>
+        </div>
+    </div>
+	<div class="weui-panel">
+        <div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_text">
+                <h4 class="weui-media-box__title">接龙标题</h4>
+                <!-- <div style="width: 155px;margin: 0 auto;"><img src="/images/onelogo.png" alt="" /></div> -->
+                <p class="weui-media-box__desc">{{message}}</p>
+                <ul class="weui-media-box__info">
+                    <li class="weui-media-box__info__meta">发起人：{{name}}</li>
+                    <li class="weui-media-box__info__meta">接龙时间：{{time}}</li>
+                    <!-- <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page__bd" style="margin-bottom:60px;">
+        <h2 class="page__title" style="padding-left:15px;">接龙人数（<span id="number"></span>人）</h2>
+        <div class="weui-flex" id="topRegion">
+            <div class="weui-flex__item1"><div class="placeholder">编号（学号）</div></div>
+            <div class="weui-flex__item2"><div class="placeholder">名字</div></div>
+            <div class="weui-flex__item3"><div class="placeholder">日期</div></div>
+        </div>
+        <div id="studentList"></div>
+    </div>
+    <div class="weui-footer_fixed-bottom" style="bottom: 0; z-index: 100000;">
+    <div class="weui-panel">
+         <div class="weui-flex">
+            <div class="weui-flex__item">
+                <select class="weui-select" name="num" id="num">
+                        <option value="">请选择编号(学号)</option>
+                </select>
+            </div>
+            <div class="weui-flex__item">  
+                 <input style="height: 45px;line-height:45px;" class="weui-input" type="text" placeholder="请输入名字" id="name"/>
+            </div>
+            <div class="weui-flex__item">
+                 <a class="weui-btn weui-btn_primary" id="submitBtn">提交</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="page__ft j_bottom">
+            <div class="page__ft"><script language="javascript" type="text/javascript" src="//js.users.51.la/19322470.js"></script>
+        <noscript>< a href=" " target="_blank">< img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19322470.asp" style="border:none" /></ a></noscript></div>
+    </div>
+</body>
+</html>
