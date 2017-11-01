@@ -2,7 +2,7 @@
 * @Author: caijw
 * @Date:   2017-10-28 18:37:38
 * @Last Modified by:   caijw
-* @Last Modified time: 2017-10-29 13:09:28
+* @Last Modified time: 2017-11-01 21:24:52
 */
 const passport = require("passport")
 const router = require("express").Router()
@@ -14,6 +14,7 @@ router
   .post("/login", passport.authenticate("local-login1", {
     successRedirect: "/index",
     failureRedirect: "/login",
+    badRequestMessage: '请填写内容',
     failureFlash: true
   }))
   .get("/logout", (req, res, next) => {

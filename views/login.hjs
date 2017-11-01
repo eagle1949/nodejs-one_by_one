@@ -51,7 +51,15 @@
         </div>
     </form>
     <a href="./signup" class="important-tips">没账户，去注册</a>
-
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="weui-footer">
+        <p class="weui-footer__text">联系客服：微信号lwpvigor</p>
+    </div>
     <div class="page__ft j_bottom">
             <div class="page__ft"><script language="javascript" type="text/javascript" src="//js.users.51.la/19322470.js"></script>
         <noscript>< a href=" " target="_blank">< img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19322470.asp" style="border:none" /></ a></noscript></div>
