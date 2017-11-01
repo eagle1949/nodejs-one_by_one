@@ -164,7 +164,7 @@
          <div class="weui-flex">
             <div class="weui-flex__item">
                 <select class="weui-select" name="num" id="num">
-                        <option value="">请选择编号(学号)</option>
+                        <option value="">选择编号/学号</option>
                 </select>
             </div>
             <div class="weui-flex__item">  

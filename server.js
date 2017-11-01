@@ -2,7 +2,7 @@
 * @Author: caijw
 * @Date:   2017-10-23 21:46:50
 * @Last Modified by:   caijw
-* @Last Modified time: 2017-10-30 19:35:42
+* @Last Modified time: 2017-11-01 20:37:29
 */
 'use strict';
 const express = require("express")
@@ -43,5 +43,5 @@ app
       authenticated: req.isAuthenticated()
     })
   })
-  .listen(3000)
-console.log('listen 3000');
+  .listen(80)
+console.log('listen 80');
