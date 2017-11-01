@@ -153,7 +153,7 @@
     <div class="page__bd" style="margin-bottom:60px;">
         <h2 class="page__title" style="padding-left:15px;">接龙人数（<span id="number"></span>人）</h2>
         <div class="weui-flex" id="topRegion">
-            <div class="weui-flex__item1"><div class="placeholder">编号（学号）</div></div>
+            <div class="weui-flex__item1"><div class="placeholder">编号(学号)</div></div>
             <div class="weui-flex__item2"><div class="placeholder">名字</div></div>
             <div class="weui-flex__item3"><div class="placeholder">日期</div></div>
         </div>
