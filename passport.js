@@ -2,7 +2,7 @@
 * @Author: caijw
 * @Date:   2017-10-29 12:21:11
 * @Last Modified by:   caijw
-* @Last Modified time: 2017-10-29 13:08:04
+* @Last Modified time: 2017-11-05 15:22:08
 */
 const bcrypt = require("bcrypt-nodejs")
 const db = require("./db")
@@ -61,6 +61,36 @@ passport.use("local-login1", new LocalStrategy({
           }
 
           done(null, user)
+        }, done)
+     }
+))
+
+//修改密码
+passport.use("local-password1", new LocalStrategy({
+        usernameField:'account',
+        passwordField:'password',
+        passReqToCallback: true
+     }, 
+     function(req, account, password, done){
+        var oldPassword = req.body.oldPassword;
+        if (!bcrypt.compareSync(oldPassword, req.user.password)) {
+            var message =  "原密码错误";
+            return done(null, false, req.flash('error',message))
+        }
+        if (password !== req.body.password2) {
+            return done(null, false, req.flash('error', '密码不一致'))
+        }
+        const newUser = {
+            password: bcrypt.hashSync(password)
+        };
+        db('user')
+        .where('uid', req.user.uid)
+        .update(newUser)
+        .then((user) => {
+          if(user === 0){
+            return res.send(400)
+          }
+          return done(null, false, req.flash('error', '修改密码成功'))
         }, done)
      }
 ))

@@ -25,11 +25,13 @@
                 $('#iosDialog1').show();
                 var mid = $(this).attr('mid');
                 $('#confirmBtn').click(function(){
+                    console.log('cc');
                     $(this).attr('href','/deleteMessage/'+mid);
                 })
             })
             $('#cancelBtn').click(function(){
                 $('#iosDialog1').hide();
+                $('#confirmBtn').unbind("click");
             })
         })
     </script>
@@ -57,14 +59,36 @@
                     </div>
                 </a>
                 <div class="button-sp-area">
-                    <a href="/detail/{{mid}}" class="weui-btn weui-btn_mini weui-btn_default">详情</a>
-                    <a href="/editMessage/{{mid}}" class="weui-btn weui-btn_mini weui-btn_primary">编辑</a>
+                    <a href="/detail/{{baseMid}}" class="weui-btn weui-btn_mini weui-btn_default">详情</a>
+                    <a href="/editMessage/{{baseMid}}" class="weui-btn weui-btn_mini weui-btn_primary">编辑</a>
                     <!-- <a href="/deleteMessage/{{mid}}" class="weui-btn weui-btn_mini weui-btn_warn">删除</a> -->
                     <a mid="{{mid}}" class="weui-btn weui-btn_mini weui-btn_warn deleteBtn">删除</a>
+                    <a href="/manageResponse/{{baseMid}}" class="weui-btn weui-btn_mini weui-btn_warn" style="background:#1879e9">删除错误接龙</a>
                 </div>
             </div>
         {{/users}}
+        <div style="margin-bottom: 52px;"></div>
+        <div class="weui-footer_fixed-bottom" style="bottom: 0; z-index: 100000;">
+        <div class="page">
+            <div class="page__bd" style="height: 100%;">
+                <div class="weui-tab">
+                    <div class="weui-tab__panel">
 
+                    </div>
+                    <div class="weui-tabbar">
+                        <a href="/index" class="weui-tabbar__item weui-bar__item_on">
+                            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                            <p class="weui-tabbar__label">接龙列表</p>
+                        </a>
+                        <a href="/my" class="weui-tabbar__item">
+                            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                            <p class="weui-tabbar__label">我的中心</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
         <div class="page__ft j_bottom">
         <div class="page__ft"><script language="javascript" type="text/javascript" src="//js.users.51.la/19322470.js"></script>
     <noscript>< a href=" " target="_blank">< img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="//img.users.51.la/19322470.asp" style="border:none" /></ a></noscript></div>

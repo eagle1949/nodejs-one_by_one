@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>管理</title>
+    <link rel="stylesheet" href="/css/weui.css"/>
+    <style>
+        /* .weui-flex__item:first-child {
+            padding-left: 15px;
+        } */
+    </style>
+    <script src="/js/zepto.js"></script>
+    <script>
+        $(function(){
+            $('.deleteBtn').click(function(){
+                $('#iosDialog1').show();
+                var rid = $(this).attr('rid');
+                var num = $(this).attr('num');
+                $('#confirmMessage').text('确定删除'+num+'号吗？');
+                $('#confirmBtn').click(function(){
+                    $.ajax({
+                        url : '/deleteResponse',
+                        type : 'POST',
+                        data : {
+                            mid : {{mid}},
+                            rid : rid
+                        },
+                        success(data){
+                            window.location.reload();
+                        },
+                        error(data){
+
+                        }
+                    })
+                })
+            })
+            $('#cancelBtn').click(function(){
+                $('#iosDialog1').hide();
+                $('#confirmBtn').unbind("click");
+            });
+
+        })
+    </script>
+</head>
+<body ontouchstart>
+    <div class="js_dialog" id="iosDialog1" style="display:none">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">提示</strong></div>
+            <div class="weui-dialog__bd" id="confirmMessage">确定删除吗？</div>
+            <div class="weui-dialog__ft">
+                <a id="cancelBtn" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+                <a id="confirmBtn" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <a href="/index" class="weui-btn weui-btn_default">返回上级</a>
+    <h1 class="page__title">报名人数（{{length}}人）</h1>
+    {{#responses}}
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>{{num}}号</p>
+            </div>
+             <div class="weui-cell__bd">
+                <p>{{name}}</p>
+            </div>
+            <div class="weui-cell__ft">{{time}}</div>
+        </div>
+        <div class="button-sp-area" style="float:right">
+            <a rid="{{rid}}" num="{{num}}" class="weui-btn weui-btn_mini weui-btn_warn deleteBtn">删除</a>
+        </div>
+    </div>
+    {{/responses}}
+   
+</body>
+</html>

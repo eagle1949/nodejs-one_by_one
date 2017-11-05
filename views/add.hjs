@@ -27,7 +27,7 @@
             <div class="weui-cells weui-cells_form">
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
-                        <textarea class="weui-textarea" placeholder="请输入文本" rows="3" name="message"></textarea>
+                        <textarea class="weui-textarea" placeholder="请输入文本" rows="10" name="message"></textarea>
                         <div class="weui-textarea-counter"></div>
                     </div>
                 </div>

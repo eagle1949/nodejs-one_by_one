@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>{{title}}</title>
+    <title>修改发起人</title>
     <link rel="stylesheet" href="/css/weui.css"/>
      <style>
          .page__ft.j_bottom {
@@ -21,15 +21,14 @@
 </head>
 <body ontouchstart>
 	<div class="page input js_show">
-    <form method="post" action="/editMessage">
+    <form method="post" action="/changeUsername">
     <div class="page__bd">
-        <div class="weui-cells__title">编辑信息</div>
-       
+        <div class="weui-cells__title">修改发起人</div>    
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell">
                 <div class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入文本" rows="10" name="message">{{message}}</textarea>
-                    <input type="hidden" value="{{mid}}" name="mid"/>
+                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3" name="username">{{username}}</textarea>
+                    <input type="hidden" value="{{uid}}" name="uid"/>
                     <div class="weui-textarea-counter"></div>
                 </div>
             </div>

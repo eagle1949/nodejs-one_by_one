@@ -2,7 +2,7 @@
 * @Author: caijw
 * @Date:   2017-10-23 21:46:50
 * @Last Modified by:   caijw
-* @Last Modified time: 2017-11-01 20:37:29
+* @Last Modified time: 2017-11-05 15:22:11
 */
 'use strict';
 const express = require("express")
@@ -12,6 +12,7 @@ const passport = require("passport")
 var flash = require('connect-flash')
 const authRoutes = require("./routes/auth")
 const indexRoutes = require("./routes/index")
+const myRoutes = require("./routes/my")
 const responseRoutes = require("./routes/response")
 const db = require("./db")
 require("./passport")
@@ -35,6 +36,7 @@ app
   })
   .use(authRoutes)
   .use(indexRoutes)
+  .use(myRoutes)
   .use(responseRoutes)
   .get("/", (req, res, next) => {
     res.send({
