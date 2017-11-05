@@ -2,7 +2,7 @@
 * @Author: caijw
 * @Date:   2017-10-28 19:18:17
 * @Last Modified by:   caijw
-* @Last Modified time: 2017-11-05 14:27:12
+* @Last Modified time: 2017-11-05 15:56:16
 */
 const passport = require("passport")
 const router = require("express").Router()
@@ -128,7 +128,7 @@ router
           //时间处理
           if(responses.length>0){
             for(var i=0; i<responses.length; i++){
-              responses[i].time = moment(responses[i].time).format('YY-MM-DD')
+              responses[i].time = moment(responses[i].time).format('YY-MM-DD HH:mm:ss')
             }
           }else{
             responses.length = 0;

@@ -37,7 +37,7 @@
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
-                <div class="weui-cell__bd weui-cell_primary"><input type="text" class="weui-input" placeholder="用户名" name="account"/></div>
+                <div class="weui-cell__bd weui-cell_primary"><input type="text" class="weui-input" placeholder="用户名(不可修改)" name="account"/></div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
@@ -49,7 +49,7 @@
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">发起人</label></div>
-                <div class="weui-cell__bd weui-cell_primary"><input type="text" class="weui-input" placeholder="发起人" name="username" /></div>
+                <div class="weui-cell__bd weui-cell_primary"><input type="text" class="weui-input" placeholder="发起人(可以修改)" name="username" /></div>
             </div>
         </div>
         <div class="weui-cells__tips"></div>
