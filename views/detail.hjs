@@ -145,7 +145,7 @@
         <div class="weui-flex" id="topRegion">
             <div class="weui-flex__item"><div class="placeholder">编号(学号)</div></div>
             <div class="weui-flex__item"><div class="placeholder">名字</div></div>
-            <div class="weui-flex__item"><div class="placeholder">日期</div></div>
+            <div class="weui-flex__item"><div class="placeholder">接龙时间</div></div>
         </div>
         <div id="studentList"></div>
     </div>

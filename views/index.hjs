@@ -17,6 +17,12 @@
             padding-bottom: 10px;
             text-align: center;
         }
+        .top{
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: #fff;
+        }
     </style>
     <script src="/js/zepto.js"></script>
     <script>
@@ -48,12 +54,17 @@
             </div>
         </div>
     </div>
-    <a href="/addMessage" class="weui-btn weui-btn_default">新建通知</a>
+    <div class="page input js_show">
+        <div class="page__hd">
+            <h4 class="page__title top">接龙列表</h4>
+        </div>
+    </div>
+     <a href="/addMessage" class="weui-btn weui-btn_mini weui-btn_primary"  style="background:#1879e9;margin-left:18px">新建接龙</a>
     <!-- <a href="./logout" class=>退出</a> -->
     <div class="weui-cells__title">通知列表</div>
         {{#users}}
             <div class="weui-cells">
-                <a href="/detail/{{mid}}">
+                <a href="/detail/{{baseMid}}">
                     <div class="weui-cell">
                       <p class="weui-media-box__desc">{{message}}</p>
                     </div>
