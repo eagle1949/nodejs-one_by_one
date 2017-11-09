@@ -21,10 +21,10 @@
             width: 25%;
         }
         #topRegion .weui-flex__item2 {
-            width: 50%;
+            width: 51%;
         }
         #topRegion .weui-flex__item3 {
-            width: 25%;
+            width: 24%;
         }
         
          #studentList .weui-flex__item1 {
@@ -32,10 +32,10 @@
              width: 25%;
         }
         #studentList .weui-flex__item2 {
-            width: 50%;
+            width: 51%;
         }
         #studentList .weui-flex__item3{
-            width: 25%;
+            width: 24%;
         }
     </style>
     <script src="/js/zepto.js"></script>
@@ -146,8 +146,8 @@
                 <!-- <div style="width: 155px;margin: 0 auto;"><img src="/images/onelogo.png" alt="" /></div> -->
                 <p class="weui-media-box">{{{message}}}</p>
                 <ul class="weui-media-box__info">
-                    <li class="weui-media-box__info__meta">发起人：{{name}}</li>
-                    <li class="weui-media-box__info__meta">发起时间：{{time}}</li><!-- 
+                    <li class="weui-media-box__info__meta" style="color: black;">发起人：{{name}}</li>
+                    <li class="weui-media-box__info__meta" style="color: black;">发起时间：{{time}}</li><!-- 
                     <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li> -->
                 </ul>
                 <span style="font-size:13px;color:#e25b5b;">(若接龙信息有错误，可以联系发起人删除，并重新接龙)</span>
@@ -157,7 +157,7 @@
     <div class="page__bd" style="margin-bottom:60px;">
         <h3 class="page__title" style="padding-left:15px;">接龙人数（<span id="number"></span>人）</h3>
         <div class="weui-flex" id="topRegion">
-            <div class="weui-flex__item1"><div class="placeholder">编号(学号)</div></div>
+            <div class="weui-flex__item1"><div class="placeholder">编号/学号</div></div>
             <div class="weui-flex__item2"><div class="placeholder">名字</div></div>
             <div class="weui-flex__item3"><div class="placeholder">接龙时间</div></div>
         </div>
