@@ -154,6 +154,11 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        /*马上接龙*/
+        var cpro_id = "u3151221";
+    </script>
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
     <div class="page__bd" style="margin-bottom:60px;">
         <h3 class="page__title" style="padding-left:15px;">接龙人数（<span id="number"></span>人）</h3>
         <div class="weui-flex" id="topRegion">
