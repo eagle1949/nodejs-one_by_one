@@ -125,7 +125,7 @@
     </script>
 </head>
 <body ontouchstart>
-    <a href="/index" class="weui-btn weui-btn_default">返回首页</a>
+    <div style="text-align:center"><a href="/index">返回首页</a> | 关注<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI4ODkzMzEzNw==&scene=110#wechat_redirect">马上接龙</a>公众号</div>
     <div id="successToast" style="display:none">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast" style="top: 50%;">
